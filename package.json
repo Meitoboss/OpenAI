@@ -1,0 +1,20 @@
+{
+  "name": "local-study-ai",
+  "version": "0.1.0",
+  "description": "Ollamaで動くローカル学習用AIチャット(Electron + TypeScript)",
+  "main": "dist/main/main.js",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.main.json && tsc -p tsconfig.renderer.json",
+    "typecheck": "tsc -p tsconfig.main.json --noEmit && tsc -p tsconfig.renderer.json --noEmit",
+    "start": "npm run build && electron ."
+  },
+  "dependencies": {
+    "pdfjs-dist": "^6.2.108"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "electron": "^44.5.1",
+    "typescript": "^6.0.3"
+  }
+}

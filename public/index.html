@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <!-- 自分のファイル以外のスクリプトやスタイルを読み込ませない -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local Study AI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <button id="new-chat" class="primary" type="button">＋ 新しい会話</button>
+      <h2>履歴</h2>
+      <ul id="conversation-list" class="conversation-list"></ul>
+    </aside>
+
+    <main class="main">
+      <header class="toolbar">
+        <div id="status" class="status" data-state="checking">
+          <span class="dot"></span><span id="status-text">Ollamaを確認中…</span>
+        </div>
+        <label>モデル
+          <select id="model"></select>
+        </label>
+        <label title="大きいほど長い教材や会話を扱えますが、メモリを多く使い遅くなります">コンテキスト長
+          <select id="num-ctx">
+            <option value="4096">4,096</option>
+            <option value="8192">8,192</option>
+            <option value="16384">16,384</option>
+            <option value="32768">32,768</option>
+          </select>
+        </label>
+        <button id="reload-models" type="button" title="Ollamaに再接続してモデル一覧を更新">再接続</button>
+      </header>
+
+      <section class="materials">
+        <button id="add-material" type="button">教材を追加</button>
+        <ul id="material-list" class="material-list"></ul>
+        <p id="material-note" class="material-note"></p>
+      </section>
+
+      <section id="messages" class="messages" aria-live="polite"></section>
+
+      <form id="composer" class="composer">
+        <textarea id="input" rows="2" placeholder="質問を入力(Enterで送信、Shift+Enterで改行)"></textarea>
+        <button id="send" class="primary" type="submit">送信</button>
+      </form>
+    </main>
+
+    <script defer src="../dist/renderer/renderer.js"></script>
+  </body>
+</html>

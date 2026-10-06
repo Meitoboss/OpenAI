@@ -1,0 +1,12 @@
+{
+  // 画面(レンダラー)用(ブラウザ上で動く。<script>で読み込む普通のスクリプトとして出力)
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": []
+  },
+  "include": ["src/renderer", "src/shared"]
+}
